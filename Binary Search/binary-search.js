@@ -2,26 +2,26 @@ const someArray = [1, 2, 3, 4, 5, 10, 12, 14, 15, 44, 45, 101, 128, 130, 132, 14
 
 
 const binarySearch = (array, itemToFind) => {
-    low = 0;
-    high = array.length - 1;
+  let low = 0;
+  let high = array.length - 1;
 
-    while (low <= high) {
-        mid = Math.floor((low + high) / 2);
-        const guessedItem = array[mid];
-        
-        if (guessedItem === itemToFind) {
-            return mid;
-        }
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const guessedItem = array[mid];
 
-        if (guessedItem > itemToFind) {
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
-
+    if (guessedItem === itemToFind) {
+      return mid;
     }
 
-    return null;
+    if (guessedItem > itemToFind) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+
+  }
+
+  return null;
 };
 
 console.log(binarySearch(someArray, 1));
